@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap');
+
+:root{
+--yellow:#f9ca24;
+}
+
+
+*{
+
+ font-family: 'Nunito', sans-serif;
+ margin:0;
+ padding:0;
+ box-sizing: border-box;
+ text-decoration: none;
+ outline: none;
+ border:none;
+ text-transform: capitalize;
+ transition: all .2s linear;
+
+}
+
+*::selection{
+    background:var(--yellow);
+    color:#333;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+    width: 1.4re;
+}
+
+html::-webkit-scrollbar-track{
+    background: #222;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: var(--yellow);
+}
+
+body{
+    background: #111;
+    overflow-x: hidden;
+    padding-left: 35rem;
+}
+
+section{
+    min-height: 100vh;
+    padding: 1rem;
+
+}
+
+.btn{
+    padding: .7rem 3rem;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 2rem;
+    border-radius: 5rem;
+}
+
+.btn i{
+    padding: 0 .5rem;
+    font-size: 1.8rem;
+
+}
+
+.btn:hover{
+    background: var(--yellow);
+}
+
+.heading{
+    text-align: center;
+    margin: 0 6rem;
+    font-size: 4rem;
+    padding: 1rem;
+    border-bottom: .4rem solid #fff4;
+    color: #fff;
+}
+
+.heading span{
+    color: var(--yellow);
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 35rem;
+    background: #1a1a1a;
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+}
+
+header .user img{
+    height: 17rem;
+    width: 17rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: .7rem solid var(--yellow);
+}
+
+header .user .name{
+    font-size: 3.5rem;
+    color: #fff;
+
+}
+
+header .user .post{
+    font-size: 2rem;
+    color: #eee;
+    
+}
+
+header .navbar{
+    width: 100%;
+}
+
+header .navbar ul{
+    list-style: none;
+    padding: 1rem 3rem;
+}   
+
+header .navbar ul a{
+     display: block;
+     padding: 1rem;
+     margin: 1.5rem 0;
+     background:#333;
+     color: #fff;
+     font-size: 2rem;
+     border-radius: 5rem;
+}  
+
+header .navbar ul li a:hover{
+     background-color: var(--yellow);
+}
+
+#menu{
+    position: fixed;
+    top: 2rem; right: 2rem;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding: 1rem 1.5rem;
+    z-index: 1000;
+    display: none;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    padding: 0 15rem;
+	text-color: white; 
+
+}
+
+.home h3{
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.home h1{
+    font-size: 5rem;
+    color: #fff;
+}
+
+.home h1 span{
+    color: var(--yellow);
+    
+}
+
+.home p{
+    font-size: 2rem;
+    color: #eee;
+    padding: 1rem 0;
+}
+
+.blog .row{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+}
+
+.blog .row .info{
+       flex: 1 1 48rem;
+       padding: 2rem 1rem;
+       padding-left: 6rem;
+}
+
+.blog .row .info h3{
+       font-size:  2rem;
+       color: var(--yellow);
+       padding: 1rem 0;
+       font-weight: normal;
+}
+
+.blog .row .info h3 span{
+       color: #eee;
+       padding: 0 .5rem;
+
+}
+
+.blog .row .counter{
+    flex: 1 1 48rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.blog .row .counter .box{
+    width: 20rem;
+    background: #222;
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.blog .row .counter .box span{
+    font-size: 4rem;
+    color: var(--yellow);
+
+}
+
+.blog .row .counter .box h3{
+    font-size: 2rem;
+    color: #fff;
+}
+
+.flex .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    padding-left: 3rem;
+
+}
+
+.flex .box-container .box{
+    width: 27rem;
+	height: 27rem;
+    margin: 4rem 1rem;
+    padding-left: 4rem;
+    border-left: 2rem solid #fff;
+    position: relative;
+
+}
+
+.flex .box-container .box span{
+    font-size: 1.3rem;
+    background: #222;
+    color: #fff;
+    border-radius: 5rem;
+    padding: .5rem 2.5rem;
+
+}
+
+.flex .box-container .box h3{
+    font-size: 2rem;
+    color: #fff;
+    padding-top: 1.5rem;
+
+}
+
+.flex .box-container .box p{
+    font-size: 1.4rem;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.flex .box-container .box i{
+    position: absolute;
+    top: -1.5rem; left: -2.5rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+    background: var(--yellow);
+
+}
+
+
+
+/* media queries */
+
+@media (max-width: 1200px){
+
+    html{
+        font-size: 55%;
+		color: white;
+
+    }
+    .home{
+        padding:1rem 4rem;
+    }
+}
+
+@media (max-width: 991px){
+    header{
+        left: -120;
+    }
+    #menu{
+        display: block;
+    }
+    header .toggle{
+        left:0%;
+    }
+
+    body{
+        padding: 0;
+    }
+}
+
+@media (max-width:768px){
+    html{
+        font-size: 50%;
+    }
+}
+
+@media (max-width:400px){
+    header{
+        width: 100vw;
+    }
+
+    .heading{
+        margin: 0 3rem;
+    }
+
+    .about .row .counter .box{
+       width: 100%;
+       
+    }
+}
+
+.blog .box-container .box{
+    width: 100%;
+	}
+    
+
+  footer { 
+  padding: 5px;
+  text-align: center;
+  font-size: 11px;
+  font-color: white;
+  background-color: gray;
+  width: 100%;
+  }
+  .video-container {
+         position: center;
+          top: -400px;
+            left: 0px;
+            width: 2000px;
+            height:auto;
+            overflow: hidden;
+            object-fit: cover;
+         z-index: -1;
+        }
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+}
+.image-container:hover .overlay {
+  opacity: 1;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  border: 2px solid;
+  color: gold;
+}
+
+</head>
+</style>
+
+
+
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Personal portfolio website</title>
+
+     <!--- font awesome link --->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+     <!-- custom css file link -->
+     <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <header>
+     <!-- header section starts -->
+     <div class="user">
+    <a href="bernab.jpg"><img src="bernab.jpg" alt="">
+     <h3 class="name">Bernabe Lagumbay Jr.</h3><p class="post">im a web developer</p>
+     </div>
+	 
+     <nav class="navbar">
+     <ul>
+     <li><a href="#Home">Home</a></li>
+     <li><a href="#Blog">Blog</a></li>
+     <li><a href="#Flex">Flex</a></li>
+    
+     </ul>
+     </nav>
+  </header>
+     <!-- header section ends --> 
+
+<div id="menu" class="fas fa-bars"></div>
+<a name="Home"></a>
+<!---home section starts-->
+<h1 class="heading"><span>Home</span> page </h1>
+ <a href="#Blog"><button class="btn">Blog<i class="fas fa-Blog"></i></button></a>
+<section class="home" id="home">
+<div class="buttons">
+		<div class="image-container">
+		<a href="https://www.facebook.com/profile.php?id=100075937917255">
+		<img src="facebook.png" alt="facebook Image" Height="25" width="25">
+</div>
+		</a>
+		<div class="image-container">
+		<a href="https://www.youtube.com/@BERNABELAGUMBAY">
+
+		<img src="youtube.png" alt="Logo Image" Height="25" width="25">
+</div></a>
+		<div class="image-container">
+		<a href="https://www.instagram.com/ebanrebyabmugal/">
+		<img src="instagram.png" alt="Logo Image" Height="25" width="25">
+</div></a>
+		
+   <h3>Hi !</h3>
+   <h1>I'm <span>bernabe lagumbay Jr.</span></h1>
+   <p>I'm a web developer/programmer</p><ul>          
+<h2> <br><br><br><p style="text-align:center;">Self Introduction:</br>
+                Hi! I'm bernabe Lagumbay Jr. and this is my,</br>
+                webpage My Hobbies is playing online games..</br>
+                the sports i play is basketballim interested<br>
+				of pursuing this course and i have a partime <br>
+				job at the garden party venueas a Waiter</br></h2>
+				<br><br><br>
+				
+                
+				<center><font color=" white"><h2>how i see my self in 8 years:</center> </br></h2></ul>
+				<center><div class="short-film_container">
+                <video class="video"controls>
+                    <source src="video.mp4" type="Video/mp4"> <br><br>
+                </video></center>
+		
+				
+
+</section>
+<footer>
+version 1/Bermane lagumbay BSIT1E
+</footer>
+
+<!--home section ends--->
+
+<!---blog section starts-->
+<a name="Blog"></a>
+<section class="blog" id="blog">
+<style>
+body {
+  background-image: url('2.jpg');
+}
+</style>
+   <h1 class="heading"><span>blog</span> IT111 </h2>
+    <a href="#Flex"><button class="btn"> Flex <i class="fa fa-Flex"></i> </button></a>
+<center><h1>My Favourite lesson</h1></center><br>
+   <div class="row">
+     <center><div class="image-container">
+      
+	 <a href="computing.jpg"><img src="computing.jpg" class="center" alt=" "Height="250" width="450">
+	   <div class="overlay"></div></center>
+</div>
+        <h2><font color=" white"><p style="text-align:center;">All about i like this lesson is Acquiring technical skills in <br>
+		                                                       various areas such as programming languagesDeveloping the<br>
+															   ability to analyze complex problems, Enhancing critical<br>
+															   thinking skill to evaluate information Understanding the<br> 
+															   importance of cybersecurity Developing effective communication<br>
+															   skills,applying theoretical knowledgeto real-world scenarios<br>
+															   through internships, projects, or practical experiences to<br> 
+															   bridge the gap between theory and practice.</h2><br><br>.</p>
+		
+			    <center><div class="image-container"><a href="chapter2.jpg"><img src="chapter2.jpg" class="center" alt=" "Height="250" width="450">
+				<div class="overlay"></div></center>
+</div>
+				
+     <h1><font color=" white"> <p style="text-align:center;">I like this topic because when i see this topic i got amaze<br>
+	                                                         and i say someday i will be the one of them and in this<br>
+															 topic i learnedwhat are the preffesion work that the<br>
+															 computing have. these topic motivated me to be the one<br>
+															 of them.</h1><br><br></p>
+	
+		<center> <div class="image-container"><a href="chapter3.jpg"><img src="chapter3.jpg" class="center" alt=" "Height="250" width="450"><br><div class="overlay"></div>
+</div></center>
+         <font color=" white">  <h2><p style="text-align:center;"> i like this topic because it give a knowledge what is the<br>
+		                                                           deferent between Data and information, Data is a collection<br>
+																   of facts, while information puts those facts into context.</h2><br><br></p>
+		
+	   <center>  <div class="image-container"><a href="chapter4.jpg"><img src="chapter4.jpg" class="center" alt=" "Height="250" width="450"><br><div class="overlay"></div>
+</div></center>
+	<font color=" white">  <h2><p style="text-align:center;">I like this lesson because i learned what are the types<br>
+	                                                         of hacker and the data security and the common types of<br>
+															 cybercrime, common types cybercriminal and the attack of<br>
+															 cyber-countermeasures.</h2><br><br> <br>	</p>
+	<center> <h3>the lesson i challenged the most</h3><br></center>
+		<center><div class="image-container"><a href="chapter5.jpg"><img src="chapter5.jpg" class="center" alt=" "Height="250" width="450"><br><div class="overlay"></div>
+</div>	</center>
+         <font color=" white"> <h2><p style="text-align:center;">i challenge this lesson because i dont have any idea of this<br>
+		                                                         lesson i do reading/rereading so that i gain a knowledge. It<br>
+																  very challenging me because my strand of shs and this course<br>
+																 is not connected so it willchallenge me specially in doing<br>
+																 major project its a big challenge to me </h2><br></p>
+		
+      </div>
+  
+
+</section>
+<footer>
+version 1/bernabe laagumbay BSIT1E
+</footer>
+<!---blog section ends-->
+
+<!---flex section starts---->	
+
+<section class="Flex" id="flex">
+   <a name="Flex"></a>
+
+   <h1 class="heading">my<span>flex</span></h1>
+ <a href="#Home"><button class="btn"> Home <i class="fa fa-Home"></i> </button></a>
+   <div class="box-container">
+
+      
+         <i class="fas fa-flex-cap"></i>
+    
+		<center><div class="image-container">  <a href="workmate.jpg"><img src="workmate.jpg" class="center"  alt="" Height="250" width="450"><br><div class="overlay"></div>
+</div>	</center>
+		 
+          <center><font color="white"><h2> I flex my workmate at the garden party venue<br>
+                                                            because they are good at communicate with<br> 
+														    costumer and they are good at designing the food.<br>
+			                                                     my workmate is very kind and helpfulthey help me <br>
+			                                                     when they see me very busy. i like them because <br>
+																 the have a very nice attitude even though were <br>
+																 busy the teamwork will never be ruined</center> <br> </h3></p>
+     
+   </div>   						
+   </div>
+</section>
+<footer>
+version 1/bernabe laagumbay BSIT1E
+</footer>
+<!----flex  section ends----->
+
+
+</body>
+
+</html>
